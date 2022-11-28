@@ -162,7 +162,7 @@ To https://github.com/kanujoa/gitstudy05_test.git
 # 📌 수동으로 내려받기
 ## fetch
 ✔️ **fetch(페차)**: 원격 저장소에서 코드를 수동으로 내려받는 작업을 한다. 다음과 같은 코드를 작성하여 실행할 수 있다.  
-**git fetch 원격저장소URL**
+▶️ **git fetch 원격저장소URL**
 
 
 
