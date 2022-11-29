@@ -23,3 +23,4 @@
 <br/>
 
 ### :pushpin: reset, revert
+- <a href = "https://github.com/kanujoa/OSS_Assignment/blob/main/OSS%20Lecture%20Summary/13%EC%A3%BC%EC%B0%A8-reset%2C%20revert.md">**13주차-reset, revert.md**</a>
