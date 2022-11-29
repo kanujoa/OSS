@@ -161,8 +161,86 @@ To https://github.com/kanujoa/gitstudy05_test.git
 
 # 📌 수동으로 내려받기
 ## fetch
-✔️ **fetch(페차)**: 원격 저장소에서 코드를 수동으로 내려받는 작업을 한다. 다음과 같은 코드를 작성하여 실행할 수 있다.  
+✔️ **fetch(페치)**: 원격 저장소에서 코드를 수동으로 내려받는 작업을 한다. 다음과 같은 코드를 작성하여 실행할 수 있다.  
 ▶️ **git fetch 원격저장소URL**
+<br/>
+
+```bash
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w (main)
+$ code server.htm     # VSCODE를 켜서 아래 사진과 같이 코드를 수정한다.
+```
+<br/>
+
+![image](https://user-images.githubusercontent.com/99963066/204474732-b4404e52-b721-462f-a7dd-54be752e8693.png)
+<br/>
+
+```bash
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w (main)
+$ git commit -am "look sky"     # 수정된 파일을 스테이지 영역에 등록과 동시에 커밋한다.
+[main 420e411] look sky
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w (main)
+$ git push origin main     # push 명령어를 이용해 커밋된 수정 내용을 원격 저장소로 전송한다.
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 366 bytes | 91.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kanujoa/gitstudy05_test.git
+   8fd17da..420e411  main -> main
+```
+<br/>
+
+다시
+```bash
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w (main)
+$ cd ..     # 폴더를 이동한다.
+
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git
+$ cd 05w_clone     # 05w_clone 저장소(복제 폴더)로 이동한다.
+
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w_clone (main)
+$ git fetch     # fetch 명령어를 이용해 커밋을 내려받는다.
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 346 bytes | 16.00 KiB/s, done.
+From https://github.com/kanujoa/gitstudy05_test
+   8fd17da..420e411  main       -> origin/main
+```
+<br/>
+
+페치 후 원격 저장소의 커밋 내용을 살펴보면 커밋 로그가 나오는 것을 확인할 수 있다.  
+pull 명령어와 다르게 fetch 명령어를 실행한 후에는 커밋이 추가된 것을 확인할 수 있다.
+<br/><br/><br/>
 
 
+# 📌 merge 명령어로 수동 병합
+페치는 데이터를 내려받기만 할 뿐 자동 병합하지 않는다. 내려받은 커밋을 로컬 저장소에 적용하려면 병합 명령을 실행해야 하는데, 이때 merge 명령어를 사용한다.  
+```bash
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w_clone (main)
+$ git merge origin/main     # 임시 원격 브랜치 병합
 
+뚜비@DESKTOP-SKBKL14 MINGW64 /c/OSS/git/05w_clone (main)
+$ git log     # 로그를 확인하여 다시 로컬 저장소의 로그 기록을 확인한다.
+commit 420e411b83781c643ee7bd85229136c790821aef (HEAD -> main, origin/main)
+Author: yubeenso <youbin0105@gmail.com>
+Date:   Tue Nov 29 17:19:13 2022 +0900
+
+    look sky     
+
+commit 8fd17da66b985e1bb3d3e5e4aa899a8b73ab8945
+Author: yubeenso <youbin0105@gmail.com>
+Date:   Tue Nov 29 06:18:34 2022 +0900
+
+    good day
+
+commit aa746c8ad10d909137794a55da2495905b0f8aa4
+Author: yubeenso <youbin0105@gmail.com>
+Date:   Tue Nov 29 00:23:30 2022 +0900
+
+    first commit
+```
